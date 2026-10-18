@@ -1,9 +1,9 @@
 # เดโมจำแนกพันธุ์ข้าว (Streamlit)
 
 ## 1. วางไฟล์โมเดล
-ดาวน์โหลด `best_resnet50_fold4.pt` จาก Google Drive แล้ววางไว้ที่
+ดาวน์โหลด `best_model_fold3.pt` (DenseNet121) จาก Google Drive แล้ววางไว้ที่
 ```
-rice_app/models/best_resnet50_fold4.pt
+rice_app/models/DenseNet121/best_model_fold3.pt
 ```
 
 ## 2. ติดตั้ง (ครั้งแรกครั้งเดียว)

@@ -8,7 +8,7 @@ from torchvision import models, transforms
 # ต้องตรงกับ full_train_ds.classes ในโน้ตบุ๊ก
 CLASSES = ["arborio", "basmati", "ipsala", "jasmine", "karacadag"]
 
-MODEL_PATH = Path(__file__).parent / "models" / "ResNet50" / "best_resnet50_fold4.pt"
+MODEL_PATH = Path(__file__).parent / "models" / "DenseNet121" / "best_model_fold3.pt"
 
 # เหมือนตอนฝึก: ไม่มี Normalize
 TRANSFORM = transforms.Compose([
@@ -19,8 +19,8 @@ TRANSFORM = transforms.Compose([
 
 
 def load_model(path: Path = MODEL_PATH) -> nn.Module:
-    model = models.resnet50(weights=None)
-    model.fc = nn.Linear(model.fc.in_features, len(CLASSES))
+    model = models.densenet121(weights=None)
+    model.classifier = nn.Linear(model.classifier.in_features, len(CLASSES))
     state = torch.load(path, map_location="cpu", weights_only=True)
     # รองรับโมเดลที่เซฟจาก DataParallel
     state = {k.removeprefix("module."): v for k, v in state.items()}
