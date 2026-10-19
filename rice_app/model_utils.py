@@ -5,12 +5,10 @@ import torch.nn as nn
 from PIL import Image
 from torchvision import models, transforms
 
-# ต้องตรงกับ full_train_ds.classes ในโน้ตบุ๊ก
 CLASSES = ["arborio", "basmati", "ipsala", "jasmine", "karacadag"]
 
 MODEL_PATH = Path(__file__).parent / "models" / "DenseNet121" / "best_model_fold3.pt"
 
-# เหมือนตอนฝึก: ไม่มี Normalize
 TRANSFORM = transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),
